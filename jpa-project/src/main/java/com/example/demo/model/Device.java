@@ -167,4 +167,5 @@ public class Device {
 		this.deviceGroups = deviceGroups;
 	}
 
+	
 }

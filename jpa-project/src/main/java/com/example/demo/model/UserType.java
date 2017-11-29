@@ -9,18 +9,6 @@ public class UserType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(mappedBy = "userType")
-    @Column(nullable = false)
-    private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     private String description;
 
     public Long getId() { return id; }
