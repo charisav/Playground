@@ -7,11 +7,9 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "devices")
 public class Device {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "device_id")
 	private Long id;
 
 	@ManyToOne
@@ -30,11 +28,11 @@ public class Device {
 
 	@OneToMany(mappedBy = "device")
 	@Column(nullable = false)
-	private Set<Device_Note> deviceNotes = new HashSet<Device_Note>();
+	private Set<DeviceNote> deviceNotes = new HashSet<DeviceNote>();
 
 	@OneToMany(mappedBy = "device")
 	@Column(nullable = false)
-	private Set<Device_Metadata> deviceMetadata = new HashSet<Device_Metadata>();
+	private Set<DeviceMetadata> deviceMetadata = new HashSet<DeviceMetadata>();
 
 	@OneToOne(mappedBy = "device")
 	@Column(nullable = false)
@@ -137,19 +135,19 @@ public class Device {
 		this.createdByUser = createdByUser;
 	}
 
-	public Set<Device_Note> getDeviceNotes() {
+	public Set<DeviceNote> getDeviceNotes() {
 		return deviceNotes;
 	}
 
-	public void setDeviceNotes(Set<Device_Note> deviceNotes) {
+	public void setDeviceNotes(Set<DeviceNote> deviceNotes) {
 		this.deviceNotes = deviceNotes;
 	}
 
-	public Set<Device_Metadata> getDeviceMetadata() {
+	public Set<DeviceMetadata> getDeviceMetadata() {
 		return deviceMetadata;
 	}
 
-	public void setDeviceMetadata(Set<Device_Metadata> deviceMetadata) {
+	public void setDeviceMetadata(Set<DeviceMetadata> deviceMetadata) {
 		this.deviceMetadata = deviceMetadata;
 	}
 

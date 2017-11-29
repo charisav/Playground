@@ -7,11 +7,9 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "deviceConfiguration")
 public class DeviceConfiguration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "deviceConfiguration_id")
 	private Long id;
 
 	@OneToOne

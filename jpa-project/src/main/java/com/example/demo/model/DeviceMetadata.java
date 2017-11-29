@@ -3,11 +3,9 @@ package com.example.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "device_metadata")
-public class Device_Metadata {
+public class DeviceMetadata {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "device_metadata_id")
 	private Long id;
 	
 	@ManyToOne
@@ -18,7 +16,7 @@ public class Device_Metadata {
 	private String sortIndex;
 	private boolean isVisible;
 
-	public Device_Metadata() {
+	public DeviceMetadata() {
 	}
 
 	public Long getId() {

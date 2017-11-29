@@ -6,7 +6,6 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "deviceGroups")
 public class DeviceGroup {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

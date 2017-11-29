@@ -3,11 +3,9 @@ package com.example.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "device_notes")
-public class Device_Note {
+public class DeviceNote {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "device_note_id")
 	private Long id;
 	
 	@ManyToOne
@@ -15,7 +13,7 @@ public class Device_Note {
 	private Device device;
 	private String note;
 
-	public Device_Note() {
+	public DeviceNote() {
 	}
 
 	public Long getId() {
