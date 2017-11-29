@@ -3,12 +3,10 @@ package com.example.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_types")
 public class UserType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userType_id")
     private Long id;
 
     @OneToOne(mappedBy = "userType")

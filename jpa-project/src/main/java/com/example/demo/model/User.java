@@ -6,12 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
     private Long id;
 
     @ManyToOne
@@ -34,14 +32,14 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     @Column(nullable = false)
-    private Set<User_History> user_histories = new HashSet<User_History>();
+    private Set<UserHistory> userHistories = new HashSet<UserHistory>();
 
-    public Set<User_History> getUser_histories() {
-        return user_histories;
+    public Set<UserHistory> getUserHistories() {
+        return userHistories;
     }
 
-    public void setUser_histories(Set<User_History> user_histories) {
-        this.user_histories = user_histories;
+    public void setUserHistories(Set<UserHistory> userHistories) {
+        this.userHistories = userHistories;
     }
 
     public Long getId() {

@@ -7,12 +7,12 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "customers")
 public class Customer {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "customer_id")
 	private Long id;
+
 	private String name;
 	private Date activeFrom;
 	private Date activeTo;
