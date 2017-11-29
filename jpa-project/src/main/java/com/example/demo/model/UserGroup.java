@@ -1,6 +1,15 @@
 package com.example.demo.model;
 
-import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "userGroups")
@@ -12,7 +21,13 @@ public class UserGroup {
     private Long id;
     private String name;
     private String description;
+    
+    @ManyToMany(mappedBy = "user_groups")
+    private Set<User> users = new HashSet<User>();
 
+    @ManyToMany(mappedBy = "user_groups")
+    private Set<DeviceGroup> deviceGroups = new HashSet<DeviceGroup>();
+    
     public Long getId() {
         return id;
     }
@@ -36,4 +51,13 @@ public class UserGroup {
     public void setDescription(String description) {
         this.description = description;
     }
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+    
 }

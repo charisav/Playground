@@ -14,11 +14,14 @@ public class DeviceGroup {
 	private String name;
 	private String description;
 
+	@ManyToMany(mappedBy = "deviceGroups")
+	private Set<Device> devices = new HashSet<Device>();
+	
 	@ManyToMany
-	@JoinTable(name = "device_deviceGroup", 
-			joinColumns = @JoinColumn(name = "device_id", referencedColumnName = "device_id", nullable = false),
+	@JoinTable(name = "deviceGroup_userGroup", 
+			joinColumns = @JoinColumn(name = "userGroup_id", referencedColumnName = "userGroup_id", nullable = false), 
 			inverseJoinColumns = @JoinColumn(name = "deviceGroup_id", referencedColumnName = "deviceGroup_id", nullable = false))
-	private Set<Device> deviceGroups = new HashSet<Device>();
+	private Set<UserGroup> userGroups = new HashSet<UserGroup>();
 	
 	public DeviceGroup() {
 	}
@@ -45,6 +48,22 @@ public class DeviceGroup {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Set<Device> getDevices() {
+		return devices;
+	}
+
+	public void setDevices(Set<Device> devices) {
+		this.devices = devices;
+	}
+
+	public Set<UserGroup> getUserGroups() {
+		return userGroups;
+	}
+
+	public void setUserGroups(Set<UserGroup> userGroups) {
+		this.userGroups = userGroups;
 	}
 
 }

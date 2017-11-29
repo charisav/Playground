@@ -34,6 +34,12 @@ public class User {
     @Column(nullable = false)
     private Set<UserHistory> userHistories = new HashSet<UserHistory>();
 
+    @ManyToMany
+	@JoinTable(name = "user_userGroup", 
+			joinColumns = @JoinColumn(name = "userGroup_id", referencedColumnName = "userGroup_id", nullable = false), 
+			inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false))
+	private Set<UserGroup> userGroups = new HashSet<UserGroup>();
+    
     public Set<UserHistory> getUserHistories() {
         return userHistories;
     }
@@ -121,5 +127,14 @@ public class User {
     public void setCreatedByUser(User createdByUser) {
         this.createdByUser = createdByUser;
     }
+
+	public Set<UserGroup> getUserGroups() {
+		return userGroups;
+	}
+
+	public void setUserGroups(Set<UserGroup> userGroups) {
+		this.userGroups = userGroups;
+	}
+    
 }
 
