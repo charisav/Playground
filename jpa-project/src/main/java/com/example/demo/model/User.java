@@ -27,7 +27,9 @@ public class User {
     private Date activeFrom;
     private Date activeTo;
     private Date createdOn;
-    //FK
+
+    @OneToOne
+    @JoinColumn(name = "created_by")
     private User createdByUser;
 
     @OneToMany(mappedBy = "user")
